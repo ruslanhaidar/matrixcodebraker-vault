@@ -11,19 +11,24 @@
 ## O que tem aqui
 
 ```text
-core/
-├── .claude/
-│   ├── skills/                ← 8 skills que dão poderes ao Claude
+(raiz do vault)
+├── .claude/                   ← carrega na raiz pro Claude Code achar as skills
+│   ├── skills/                ← 12 skills que dão poderes ao Claude
 │   │   ├── desabrochar/       ← entrevista de personalização (uma vez por cliente)
 │   │   ├── memory/            ← salvar fato/decisão em destino único
 │   │   ├── recall/            ← recuperar contexto antes de tarefa nova
 │   │   ├── rem-sleep/         ← consolidação fim de dia (gates de mudança real)
 │   │   ├── note/              ← captura rápida de ideia (zero fricção)
 │   │   ├── tour/              ← tour pós-desabrochar (4 comandos + primeira missão)
+│   │   ├── o-que-voce-faz/    ← revela capacidades calibradas (estágio + ramo)
+│   │   ├── refinar-voz/       ← ajusta a voz do Claude pra do cliente (D+1)
+│   │   ├── refinar-direcao/   ← ajusta direção 90d (D+3)
+│   │   ├── destravar/         ← plano estratégico de 90 dias (D+5)
 │   │   ├── atualizar/         ← puxa updates do core via git (esqueleto v0.1)
 │   │   └── coach/             ← acompanhamento D+0..D+7 (esqueleto v0.1)
 │   └── settings.json          ← settings padrão
 │
+core/                          ← gerenciado pela equipe · NÃO EDITE
 ├── 000-META/
 │   ├── CLAUDE-base.md         ← template do CLAUDE.md (sobrescrito por /desabrochar)
 │   ├── skills-catalogo.md     ← catálogo de skills extras pra auto-discovery

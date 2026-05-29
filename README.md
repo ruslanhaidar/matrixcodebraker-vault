@@ -27,8 +27,9 @@ Pronto. Daí já vai pra primeira tarefa concreta — algo entregue em 5 min.
 
 ```
 matrix-code-braker-vault/
+├── .claude/skills/      ← skills que dão poderes ao Claude (carregam na raiz)
+│
 ├── core/                ← gerenciado por nós · NÃO EDITE
-│   ├── .claude/skills/  ← skills que dão poderes ao Claude
 │   ├── 000-META/
 │   │   ├── CLAUDE-base.md      ← template (vira CLAUDE.md após /desabrochar)
 │   │   └── templates/

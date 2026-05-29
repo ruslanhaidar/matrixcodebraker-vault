@@ -114,7 +114,7 @@ top 3 → sugerir ao cliente
 
 ## Adicionando skill nova ao catálogo
 
-Quando criar skill nova no `core/.claude/skills/`:
+Quando criar skill nova no `.claude/skills/` (raiz):
 
 1. Adicionar entrada neste catálogo na categoria certa
 2. Definir triggers específicos (não vagos como "todos") — auto-discovery precisa precisão
