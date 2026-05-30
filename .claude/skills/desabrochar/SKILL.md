@@ -178,10 +178,18 @@ Após primeira tarefa entregue:
 ```
 "Pronto. Sua primeira [post / mensagem / lista] tá aí.
 
+Antes de fechar — quer fazer o ritual de fim de dia? Eu chamo 'fechar o dia' (tecnicamente é `/rem-sleep`). Eu olho o que mudou hoje, anoto num diário simples, e amanhã quando você voltar eu já lembro de onde a gente parou. Topa? (responde 'fecha o dia' ou 'depois').
+
 Amanhã ou depois quando quiser, é só voltar e me pedir o próximo passo. Eu lembro de tudo que a gente fez.
 
-Em 1-3 dias eu vou te oferecer 4 perguntas extras pra refinar meu jeito ao seu — mas só se você quiser. Tá tudo OK funcionar como tá agora."
+Em 1-3 dias eu vou te oferecer 4 perguntas extras pra refinar meu jeito ao seu — mas só se você quiser. Tá tudo OK funcionar como tá agora.
+
+✨ **Bônus opcional** — essa pasta toda também abre num programa chamado Obsidian (grátis), que mostra os seus arquivos visualmente, tipo um caderno bonito. Quer que eu te ensine? (responde 'Obsidian sim' ou 'depois'). Se sim, eu te guio pelo passo a passo de `docs/OBSIDIAN.md`."
 ```
+
+Se "fecha o dia" → rodar `/rem-sleep` agora (cria a primeira daily, fixa hábito).
+Se "Obsidian sim" → seguir passo a passo de `docs/OBSIDIAN.md` (instalar → abrir vault → plugin de skills).
+Se "depois" pra ambos → despedir normalmente.
 
 ---
 

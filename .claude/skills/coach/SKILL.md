@@ -34,6 +34,20 @@ Filtro **Artigo 1**: a sugestão aproxima o cliente dos R$1.500+/mês via IA? Se
 - Cliente digita `/coach` → skill carrega CHECKLIST + último uso e sugere próximo passo
 - Cliente digita "tô travado" / "não sei o que fazer" → skill ativa em modo desbloqueio
 
+### Disparo por sinal de encerramento (já funciona — fim de dia)
+
+Cliente disse: "boa noite", "vou dormir", "tchau", "até amanhã", "encerrar", "é isso por hoje", "fechei por hoje" → **antes de despedir, oferecer `/rem-sleep` em 1 frase:**
+
+```
+"Antes de sumir — quer que eu rode o `/rem-sleep` (fim de dia)?
+Anoto o que mudou hoje, amanhã eu volto sabendo de onde a gente parou. 30s. Responde 'sim' / 'depois'."
+```
+
+Se "sim" → rodar `/rem-sleep` direto.
+Se "depois" → despedir sem insistir. Não repetir oferta na mesma sessão.
+
+**Não disparar essa oferta** se rem-sleep já rodou na sessão (frontmatter `rem_sleep_feito_hoje: true` no PRIMER local).
+
 ---
 
 ## Workflow do disparo manual

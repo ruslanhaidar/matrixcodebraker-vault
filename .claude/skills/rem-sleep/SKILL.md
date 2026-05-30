@@ -20,10 +20,45 @@ description: Consolidação de sessão. 3 passos com gates de mudança real — 
 
 ## When NOT to Use
 
-- Sessão muito curta sem trabalho substancial
 - Já rodou rem-sleep nesta sessão (não duplicar daily)
 - Mid-task — interromper consolidaria estado parcial confuso
-- Sessão exploratória sem nenhuma decisão tomada
+
+> **Exceção primeira sessão (D+0).** Se `personal/log.md` ainda não tem nenhuma entrada (cliente acabou de passar pelo `/desabrochar`), os gates de "houve material" são RELAXADOS — sempre criar uma daily inicial mínima ("dia de instalação · setup calibrado") + linha de log. Objetivo: fixar o hábito + garantir que cliente VEJA o output do rem-sleep funcionando na primeira tentativa. Sem essa exceção, leigo digita `/rem-sleep` no fim do D+0 e não vê nada acontecer → assume que "não funciona".
+
+---
+
+## Passo 0 — Detecção de primeira sessão (D+0)
+
+**Antes de qualquer gate**, checar se `personal/log.md` existe e tem ≥ 1 entrada:
+
+- **Existe + tem entrada** → fluxo normal (Passos 1-3 com gates).
+- **Não existe OU vazio** → modo D+0: criar daily inicial mínima (template abaixo) + linha de log "instalação"; SKIPAR Passos 1-3 dos gates rigorosos. Resposta final: *"Primeira daily criada. Hábito fixado — amanhã eu volto sabendo onde a gente parou."*
+
+### Template D+0 — `personal/100-PROJETOS/onboarding/daily/YYYY-MM-DD.md`
+
+```markdown
+---
+data: YYYY-MM-DD
+projeto: onboarding
+---
+
+# YYYY-MM-DD — Dia 0 · Instalação Matrix Code Braker
+
+- Setup calibrado via `/desabrochar` (ramo: [RAMO], gargalo: [GARGALO])
+- Primeira tarefa concreta: [TAREFA OU "não executada hoje"]
+- Hábito fim-de-dia (`/rem-sleep`) fixado
+
+## Links
+- [[../../PRIMER]]
+```
+
+### Linha D+0 de `personal/log.md`
+
+```markdown
+## [YYYY-MM-DD HH:MM] rem | onboarding
+Dia 0 · setup instalado · hábito fim-de-dia fixado
+→ [[100-PROJETOS/onboarding/daily/YYYY-MM-DD]]
+```
 
 ---
 

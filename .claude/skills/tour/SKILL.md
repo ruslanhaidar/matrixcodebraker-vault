@@ -73,11 +73,30 @@ Sem cerimônia, sem classificar. A gente promove pra ação concreta depois."
 **Comando 4 — `/rem-sleep`**
 
 ```
-"No fim do dia, digita `/rem-sleep`. Eu consolido o que mudou — daily, PRIMER, log.
-Não toco em nada que não mudou. Memória limpa, contexto preservado pra amanhã."
+"No fim do dia, digita `/rem-sleep` (ou fala 'fecha o dia', 'boa noite').
+Eu consolido o que mudou — daily, PRIMER, log.
+Na primeira vez SEMPRE crio uma daily mínima — assim a gente já fixa o hábito.
+Depois disso só toco em arquivo que mudou. Memória limpa, contexto preservado pra amanhã.
+
+Tenta agora: digita `/rem-sleep` (ou 'fecha o dia') pra eu criar a sua daily inicial."
 ```
 
-### Passo 3 — Sugerir primeira missão
+Esperar cliente executar (mesmo que rem-sleep só registre "dia de instalação" — fixa hábito + cria 1ª daily).
+
+### Passo 3 — Bônus: Obsidian (opcional, 2min)
+
+Antes de propor a primeira missão, oferecer o bônus visual:
+
+```
+"Bônus rápido (opcional, 2min) — sua pasta inteira também abre num programa chamado Obsidian (grátis). Ele mostra os arquivos visualmente, tipo caderno bonito + grafo de conexões. Quer que eu te guie a abrir agora?
+
+(Responde 'Obsidian sim' / 'depois')"
+```
+
+Se "sim" → seguir `docs/OBSIDIAN.md` passo a passo (instalar Obsidian → abrir esta pasta como vault → instalar plugin obsidian-skills pra slash-commands rodarem dentro do Obsidian também).
+Se "depois" → seguir Passo 4 direto.
+
+### Passo 4 — Sugerir primeira missão
 
 Ler `personal/CHECKLIST.md`, pegar o primeiro item (D+1), e propor:
 

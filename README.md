@@ -18,8 +18,11 @@ Toda decisão deste setup se ajoelha pra essa frase. Conteúdo, ferramenta, suge
 2. **Abra esta pasta no Claude Code** (File → Open Folder)
 3. **Digite `/desabrochar`** (ou só "oi" — eu te chamo)
 4. Respondo 5 perguntinhas rápidas (~2 min) e seu setup tá calibrado
+5. **No fim do dia, digite `/rem-sleep`** — eu consolido o que mudou (daily, PRIMER, log)
 
 Pronto. Daí já vai pra primeira tarefa concreta — algo entregue em 5 min.
+
+> **Bônus visual — Obsidian.** O vault é só markdown. Você pode (opcional, recomendado) abrir a MESMA pasta no [Obsidian](https://obsidian.md) pra navegar visualmente os arquivos, ver wikilinks, grafo de conexões. Detalhes em [`docs/OBSIDIAN.md`](docs/OBSIDIAN.md) — instalar, abrir o vault, plugin de skills.
 
 ---
 

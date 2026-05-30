@@ -1,0 +1,15 @@
+{
+  "showLineNumber": false,
+  "spellcheck": true,
+  "spellcheckLanguages": ["pt-BR"],
+  "useTab": false,
+  "tabSize": 2,
+  "newFileLocation": "current",
+  "attachmentFolderPath": "personal/anexos",
+  "alwaysUpdateLinks": true,
+  "promptDelete": true,
+  "showInlineTitle": true,
+  "showViewHeader": true,
+  "nativeMenus": false,
+  "trashOption": "system"
+}
