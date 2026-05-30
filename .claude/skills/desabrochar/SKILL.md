@@ -48,6 +48,100 @@ Esperar "sim", "vamos", "ok", "claro", ou equivalente. Se a pessoa já mandar me
 
 > "Posso fazer essa tarefa, mas se você responder 5 perguntinhas antes, vou fazer ela MUITO melhor — no seu jeito. 2 minutos. Topa?"
 
+### Passo 1.5 — Material opcional (1 min) — antes das perguntas
+
+**Princípio:** se a pessoa já tem material dela escrito em algum lugar, eu leio ANTES — daí a entrevista é mais curta, mais precisa, e o setup final imita a voz dela porque eu já vi como ela escreve. Sem material, a entrevista cobre tudo do zero.
+
+Mensagem pro cliente:
+
+```
+"Antes das 5 perguntas — você tem algum material seu que eu posso dar uma olhada rápida pra te conhecer melhor?
+
+Tipo:
+• Livro / ebook / apostila que você escreveu (PDF, .md, .txt)
+• Slides ou apresentação (PDF é o mais fácil)
+• Link da sua página de venda
+• Link do seu Instagram / YouTube / TikTok / site
+
+Como mandar:
+• Arquivo: arrasta pra cá ou cola o caminho (ex: C:\Documentos\meu-ebook.pdf)
+• Link: cola a URL aqui
+
+Pode mandar 1, vários, ou 'nenhum'. Se 'nenhum', a entrevista cobre tudo. Responde quando quiser."
+```
+
+Esperar resposta.
+
+#### Se cliente mandou material — processar ANTES de seguir
+
+**Tipos suportados nativamente:**
+
+| Tipo | Como ler |
+|---|---|
+| `.md` / `.txt` | Read tool direto |
+| `.pdf` | Read tool direto (Claude Code suporta nativo; PDFs > 10 páginas usar `pages: "1-10"` etc) |
+| `.docx` / `.pptx` | Tentar `markitdown` via Bash (`markitdown "arquivo.docx" -o "arquivo.md"`); se não tiver instalado, pedir cliente exportar pra PDF: *"Esse formato não consigo ler direto. Pode salvar como PDF? No Word: File → Save as → PDF."* |
+| URL (página venda, perfil social, blog) | WebFetch tool (extrai texto principal) |
+| Vídeo YouTube | WebFetch na URL pega título + descrição. Transcrição completa não nativo — pedir cliente colar legenda manualmente se quiser |
+
+**Extração interna (NÃO mostrar pro cliente):**
+
+Analisar material e extrair em `personal/memory/material_briefing.md`:
+
+```markdown
+---
+name: Briefing do material entregue em D+0
+type: project
+data_criado: [YYYY-MM-DD]
+---
+
+## Voz detectada
+- Tom: [formal / informal / acadêmico / didático / conversado]
+- Vocabulário recorrente: [3-5 palavras/expressões que aparecem muito]
+- Anti-padrões: [palavras que ela NUNCA usa — útil pra calibrar voz Claude]
+
+## Atividade detectada
+- [1 frase do que ela faz, derivado do material]
+
+## Temas recorrentes
+- [3-5 temas principais que aparecem]
+
+## Público-alvo aparente
+- [pra quem ela escreve, pelo material]
+
+## Fontes lidas
+- [lista de arquivos/URLs processados]
+```
+
+**Confirmação curta pro cliente (3 frases máx):**
+
+```
+"Beleza, li seu material. Já peguei seu jeito de escrever (vou imitar) + entendi que você [ATIVIDADE EM 1 FRASE].
+
+Agora vou fazer só as 5 perguntas — algumas eu já vou confirmar em vez de perguntar do zero, fica mais rápido."
+```
+
+Se confirmar errado, cliente corrige antes de seguir.
+
+#### Se cliente disse "nenhum" / "depois" / "não tenho"
+
+```
+"Tranquilo. A entrevista cobre tudo. Vai começando — pergunta 1 de 5:"
+```
+
+Seguir Passo 2 direto.
+
+#### Ajuste das 5 perguntas se houve material
+
+Se `material_briefing.md` existe, **as 5 perguntas viram CONFIRMAÇÃO** em vez de descoberta:
+
+- **P3 (atividade)**: vira *"Pelo seu material, vi que você [ATIVIDADE]. Tá certo? Quer ajustar algo?"*
+- **P4 (plataformas)**: vira *"No material você cita [PLATAFORMAS]. Usa todas? Tem mais?"*
+- **P5 (gargalo)**: continua aberta — material raramente revela dor atual
+- **P1 (nome) e P2 (cidade)**: continuam — material não cobre
+
+Isso encurta entrevista de ~2min pra ~1min quando há material.
+
 ### Passo 2 — 5 perguntas (uma por mensagem)
 
 **Regra dura:** UMA pergunta por mensagem. Nunca despejar lista. Espera resposta. Confirma curtinho. Próxima pergunta.
@@ -132,7 +226,8 @@ Internamente:
 3. **Criar `personal/PRIMER.md`** com objetivo placeholder (vai refinar em D+3 via `/refinar-direcao`)
 4. **Criar `personal/CHECKLIST.md`** com 5 missões iniciais calibradas pelo gargalo
 5. **Criar `personal/memory/`** com 1 arquivo só por enquanto: `user_perfil.md` (perfil + ramo + plataformas + gargalo)
-6. **Marcar `desabrochado: true`** no frontmatter do CLAUDE.md
+6. **Se houve material em Passo 1.5**: garantir que `personal/memory/material_briefing.md` já está salvo + linkar dele no `user_perfil.md` ("voz e temas: ver [[material_briefing]]")
+7. **Marcar `desabrochado: true`** no frontmatter do CLAUDE.md
 
 ### Passo 5 — Mini-tour (4 frases, sem comandos técnicos despejados)
 
@@ -273,6 +368,9 @@ data_criado: [YYYY-MM-DD]
 | Travada/insegura | Acolher: *"Não tem certo nem errado. Primeira coisa que vier."* |
 | Tenta entrar em outro assunto | Acolher e voltar: *"Entendi. Anoto pra gente conversar depois. Voltando à pergunta..."* |
 | Resposta em formato técnico (faltou Lente do Leigo) | Reformular sem jargão: traduz e pergunta de novo |
+| Mandou material em formato não suportado (.docx/.pptx sem markitdown) | Pedir exportar pra PDF: *"Word? Salva como PDF (File → Save as → PDF) e arrasta de novo."* |
+| Mandou link mas WebFetch falhou (página com login, JS pesado) | Pedir cliente colar texto manualmente: *"Não consegui abrir o link. Cola aqui o texto da bio/sobre/descrição que tem nele."* |
+| Material gigante (livro inteiro 300 páginas) | Ler só os primeiros 30-40k caracteres + sumário/conclusão. Não tentar processar tudo |
 
 ---
 
@@ -286,3 +384,7 @@ data_criado: [YYYY-MM-DD]
 - Inflar Bloco 1 com perguntas que cabem em /refinar-voz e /refinar-direcao
 - Recomendar skills extras durante o Bloco 1 — fica pra depois (auto-discovery roda async em background pós-CLAUDE.md gerado)
 - Mencionar "Artigo 1" pra o cliente — é filtro interno, não copy externa
+- Forçar cliente a mandar material em Passo 1.5 — é OPCIONAL. "Nenhum" é resposta válida, segue normal
+- Despejar lista técnica de extensões suportadas na mensagem do Passo 1.5 — leigo lê "PDF" e bate, não precisa ver `.md / .pptx / .docx`. Manter exemplos curtos
+- Ler material gigante inteiro (livro 300 páginas) tentando extrair tudo — voz e temas já saem dos primeiros capítulos. Cap em ~30-40k chars
+- Mostrar resumo técnico do `material_briefing.md` pro cliente — é arquivo interno meu, ele só precisa saber "li seu material, entendi seu jeito"
