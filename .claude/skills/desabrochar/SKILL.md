@@ -213,21 +213,49 @@ Esperar resposta. Aplicar ajustes do conteúdo se vier. **Salvar resposta de est
 
 Não seguir antes de OK no conteúdo.
 
-### Passo 4 — Setup silencioso (sem narração técnica)
+### Passo 4 — Setup silencioso (sem narração técnica) — **AÇÃO REAL OBRIGATÓRIA**
 
-Em background, gerar arquivos. NÃO descrever o que tá fazendo em linguagem técnica. Mensagem pro cliente:
+> ⚠️ **CRÍTICO PRA VOCÊ, CLAUDE:** Os itens abaixo NÃO são descrição simbólica. Você TEM que chamar a tool `Write` (ou `Edit` se o arquivo já existe) PRA CADA arquivo da lista. Sem isso, a conversa acaba e o cliente fica sem setup — exatamente o bug que aconteceu no teste #1 com a cobaia (perguntou tudo, declarou "configurado", nada foi escrito, cliente ficou sem arquivo).
+>
+> **Regra dura:** se você terminar a entrevista e SEGUIR pro Passo 5 (Mini-tour) sem ter chamado `Write` ≥4 vezes nesta sessão, você falhou. Volta e escreve.
+
+Mensagem pro cliente (mostrada NO chat enquanto você chama as tools):
 
 > "Beleza. Já tô configurando aqui meu jeito de te atender. 10 segundos."
 
-Internamente:
+**Agora chamar as tools — execute uma a uma, na ordem:**
 
-1. **Sobrescrever `core/CLAUDE.md`** com versão preenchida (template abaixo)
-2. **Carregar pacote do ramo** detectado (`core/ramos/<ramo>/CLAUDE-additions.md` mesclado no CLAUDE.md)
-3. **Criar `personal/PRIMER.md`** com objetivo placeholder (vai refinar em D+3 via `/refinar-direcao`)
-4. **Criar `personal/CHECKLIST.md`** com 5 missões iniciais calibradas pelo gargalo
-5. **Criar `personal/memory/`** com 1 arquivo só por enquanto: `user_perfil.md` (perfil + ramo + plataformas + gargalo)
-6. **Se houve material em Passo 1.5**: garantir que `personal/memory/material_briefing.md` já está salvo + linkar dele no `user_perfil.md` ("voz e temas: ver [[material_briefing]]")
-7. **Marcar `desabrochado: true`** no frontmatter do CLAUDE.md
+1. **`Write`** → caminho: `core/CLAUDE.md` — usar o template "core/CLAUDE.md (versão mínima viável pós-Bloco 1)" mais abaixo nesta skill, preenchendo com os dados das respostas (P1 nome, P2 cidade, P3 atividade + ramo detectado, P4 plataformas, P5 gargalo, estilo de resposta calibrado em Passo 3).
+2. **`Read`** → caminho: `core/ramos/<RAMO>/CLAUDE-additions.md` (se o arquivo existir). Pegue o bloco "Voz — regras Claude" do ramo e **`Edit`** no `core/CLAUDE.md` substituindo o placeholder da seção Voz.
+3. **`Write`** → caminho: `personal/PRIMER.md` — template:
+   ```markdown
+   # PRIMER pessoal
+
+   **Objetivo Ativo:** (placeholder — refinar em D+3 com /refinar-direcao)
+   **Próximo Passo:** primeira tarefa de D+0 (ver CHECKLIST)
+   **Blockers:** —
+   ```
+4. **`Write`** → caminho: `personal/CHECKLIST.md` — usar o template "personal/CHECKLIST.md (5 missões D+0..D+7 calibradas)" mais abaixo, preenchendo a missão D+0 com a TAREFA CALIBRADA AO GARGALO (mesma tabela do Passo 6).
+5. **`Write`** → caminho: `personal/memory/user_perfil.md` — usar o template `personal/memory/user_perfil.md` mais abaixo nesta skill, preenchendo todos os campos.
+6. **Se houve material em Passo 1.5**: confirmar (`Read`) que `personal/memory/material_briefing.md` JÁ existe (você o criou no Passo 1.5). Se não existe, criar agora via `Write` com os dados extraídos. Depois `Edit` no `user_perfil.md` adicionando 1 linha: `Voz e temas: ver [[material_briefing]]`.
+7. **`Edit`** → no `core/CLAUDE.md` que você acabou de criar, alterar o frontmatter pra incluir `desabrochado: true` + `data_desabrochar: YYYY-MM-DD` (data de hoje).
+
+### Passo 4.5 — Verificação obrigatória (CHECKPOINT antes de seguir)
+
+> ⚠️ **NÃO PULE.** Antes de mostrar o Mini-tour, RODE este checklist via Read tool. Se qualquer arquivo NÃO existir, volta no Passo 4 e cria. Sem essa checagem, a cobaia perde o setup de novo.
+
+Execute em ordem:
+
+1. `Read` em `core/CLAUDE.md` → confirma que existe + frontmatter tem `desabrochado: true` + corpo preenchido com o nome do cliente
+2. `Read` em `personal/PRIMER.md` → confirma que existe
+3. `Read` em `personal/CHECKLIST.md` → confirma que existe + tem 5 itens + D+0 está preenchido com tarefa calibrada
+4. `Read` em `personal/memory/user_perfil.md` → confirma que existe + tem nome, cidade, ramo, plataformas, gargalo
+
+**Se todos 4 existem com conteúdo real:** seguir Passo 5.
+
+**Se 1+ falha:** mostrar pro cliente *"Espera um segundo, vou refazer um arquivo que ficou faltando."* — voltar no item correspondente do Passo 4, refazer com `Write`, recheckar. Não seguir até tudo verde.
+
+> **Por que esta verificação existe:** teste #1 (28/05/2026) — Claude fez a entrevista inteira, anunciou "configurado", e fechou a sessão sem ter chamado Write nenhuma vez. Cliente perdeu setup. Foi preciso Ruslan re-onboardar manualmente por telefone. NUNCA MAIS.
 
 ### Passo 5 — Mini-tour (4 frases, sem comandos técnicos despejados)
 
@@ -388,3 +416,5 @@ data_criado: [YYYY-MM-DD]
 - Despejar lista técnica de extensões suportadas na mensagem do Passo 1.5 — leigo lê "PDF" e bate, não precisa ver `.md / .pptx / .docx`. Manter exemplos curtos
 - Ler material gigante inteiro (livro 300 páginas) tentando extrair tudo — voz e temas já saem dos primeiros capítulos. Cap em ~30-40k chars
 - Mostrar resumo técnico do `material_briefing.md` pro cliente — é arquivo interno meu, ele só precisa saber "li seu material, entendi seu jeito"
+- **Declarar "configurado" sem ter chamado `Write` de verdade em Passo 4** — bug do teste #1: Claude leu Passo 4 como descrição simbólica, anunciou "configurado" mas nenhum arquivo foi escrito, cliente perdeu setup. O Passo 4.5 agora obriga verificação via Read. SEMPRE rode.
+- **Pular Passo 4.5 porque "tenho certeza que escrevi"** — não tem. Read é barato. Sempre verifica. Se pular e arquivo não existir, cliente perde setup e a falha só aparece dias depois quando ele tenta `/recall` e nada vem.
