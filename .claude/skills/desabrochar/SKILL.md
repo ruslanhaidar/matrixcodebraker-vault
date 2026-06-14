@@ -239,6 +239,14 @@ Mensagem pro cliente (mostrada NO chat enquanto você chama as tools):
 5. **`Write`** → caminho: `personal/memory/user_perfil.md` — usar o template `personal/memory/user_perfil.md` mais abaixo nesta skill, preenchendo todos os campos.
 6. **Se houve material em Passo 1.5**: confirmar (`Read`) que `personal/memory/material_briefing.md` JÁ existe (você o criou no Passo 1.5). Se não existe, criar agora via `Write` com os dados extraídos. Depois `Edit` no `user_perfil.md` adicionando 1 linha: `Voz e temas: ver [[material_briefing]]`.
 7. **`Edit`** → no `core/CLAUDE.md` que você acabou de criar, alterar o frontmatter pra incluir `desabrochado: true` + `data_desabrochar: YYYY-MM-DD` (data de hoje).
+8. **`Bash`** → setar identity Git LOCAL no clone (pra commits futuros não quebrarem com "Author identity unknown"). Comando:
+   ```bash
+   git config user.name "[NOME]"
+   git config user.email "[NOME-SLUG]@matrixcodebraker.local"
+   ```
+   Onde `[NOME-SLUG]` é o nome em kebab-case minúsculo (ex: "Maria Silva" → `maria-silva`).
+
+   > **Por que sem `--global`:** se o cliente já usa Git pra outras coisas, NUNCA sobrescrever config global dele. Local-only afeta só este clone. Por que `@matrixcodebraker.local`: cliente leigo não tem GitHub nem entende email-de-commit; placeholder funciona pra commit local e não vaza email pessoal pra qualquer fork público. Se cliente quiser sync real com GitHub depois, troca via `/atualizar` ou manual.
 
 ### Passo 4.5 — Verificação obrigatória (CHECKPOINT antes de seguir)
 
@@ -250,10 +258,11 @@ Execute em ordem:
 2. `Read` em `personal/PRIMER.md` → confirma que existe
 3. `Read` em `personal/CHECKLIST.md` → confirma que existe + tem 5 itens + D+0 está preenchido com tarefa calibrada
 4. `Read` em `personal/memory/user_perfil.md` → confirma que existe + tem nome, cidade, ramo, plataformas, gargalo
+5. `Bash` em `git config user.email` → confirma retorno NÃO-vazio (Passo 4 item 8 setou identity local; se vazio, refazer). Sem isso, qualquer skill futura que commitar vai bater em "Author identity unknown" e quebrar pra cliente leigo.
 
-**Se todos 4 existem com conteúdo real:** seguir Passo 5.
+**Se todos 5 existem com conteúdo real:** seguir Passo 5.
 
-**Se 1+ falha:** mostrar pro cliente *"Espera um segundo, vou refazer um arquivo que ficou faltando."* — voltar no item correspondente do Passo 4, refazer com `Write`, recheckar. Não seguir até tudo verde.
+**Se 1+ falha:** mostrar pro cliente *"Espera um segundo, vou refazer um arquivo que ficou faltando."* — voltar no item correspondente do Passo 4, refazer com `Write` (ou `Bash` pra item 5), recheckar. Não seguir até tudo verde.
 
 > **Por que esta verificação existe:** teste #1 (28/05/2026) — Claude fez a entrevista inteira, anunciou "configurado", e fechou a sessão sem ter chamado Write nenhuma vez. Cliente perdeu setup. Foi preciso Ruslan re-onboardar manualmente por telefone. NUNCA MAIS.
 
