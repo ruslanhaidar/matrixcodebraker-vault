@@ -93,7 +93,7 @@ Antes de propor a primeira missão, oferecer o bônus visual:
 (Responde 'Obsidian sim' / 'depois')"
 ```
 
-Se "sim" → seguir `docs/OBSIDIAN.md` passo a passo (instalar Obsidian → abrir esta pasta como vault → instalar plugin obsidian-skills pra slash-commands rodarem dentro do Obsidian também).
+Se "sim" → seguir `${CLAUDE_PLUGIN_ROOT}/docs/OBSIDIAN.md` passo a passo (instalar Obsidian → abrir esta pasta como vault → instalar plugin obsidian-skills pra slash-commands rodarem dentro do Obsidian também).
 Se "depois" → seguir Passo 4 direto.
 
 ### Passo 4 — Sugerir primeira missão

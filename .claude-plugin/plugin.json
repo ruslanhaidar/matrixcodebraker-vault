@@ -1,0 +1,19 @@
+{
+  "name": "matrixcodebraker",
+  "version": "0.1.0",
+  "description": "Setup Claude Code pra calibrar IA ao seu jeito. Entrevista guiada (/matrixcodebraker:desabrochar) + skills universais + ramos por nicho. Liberar tempo, R$1.500+/mês via IA.",
+  "author": {
+    "name": "Ruslan Haidar",
+    "url": "https://github.com/ruslanhaidar"
+  },
+  "homepage": "https://github.com/ruslanhaidar/matrixcodebraker-vault",
+  "repository": "https://github.com/ruslanhaidar/matrixcodebraker-vault",
+  "license": "Personal use",
+  "keywords": [
+    "claude-code",
+    "onboarding",
+    "ia-pratica",
+    "matrixcodebraker",
+    "produtividade"
+  ]
+}

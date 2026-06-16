@@ -90,7 +90,7 @@ Esperar feedback. Se "tá ótimo" → seguir Passo 4. Se "não, falta X" → aju
 
 Internamente:
 
-1. **Atualizar `core/CLAUDE.md`** — sobrescrever seção "Voz" (template abaixo)
+1. **Atualizar `CLAUDE.md`** — sobrescrever seção "Voz" (template abaixo)
 2. **Marcar `voz_refinada: true`** no frontmatter
 3. **Criar `personal/memory/feedback_voz.md`** com detalhes (template abaixo)
 4. **Marcar missão D+1 como concluída** no CHECKLIST.md (`- [x]`)
@@ -107,7 +107,7 @@ Não inflar. Não cobrar. Sair.
 
 ## Templates de Output
 
-### Seção "Voz" do `core/CLAUDE.md`
+### Seção "Voz" do `CLAUDE.md`
 
 ```markdown
 ## Voz — regras Claude (não negociável)

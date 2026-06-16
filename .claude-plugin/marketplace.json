@@ -1,0 +1,15 @@
+{
+  "name": "matrixcodebraker-vault",
+  "description": "Marketplace oficial do Matrix Code Braker — setup Claude Code guiado pra iniciantes em IA. Entrevista de 5 perguntas, skills universais (memory, recall, note, rem-sleep, tour, coach) e pacotes por nicho (criador de conteúdo, e-commerce, infoprodutor). Liberar tempo + caminho rumo a R$1.500+/mês com IA.",
+  "owner": {
+    "name": "Ruslan Haidar",
+    "url": "https://github.com/ruslanhaidar"
+  },
+  "plugins": [
+    {
+      "name": "matrixcodebraker",
+      "source": "./",
+      "description": "Setup Claude Code pra calibrar IA ao seu jeito + caminhar rumo a R$1.500+/mês com IA. Entrevista guiada (/desabrochar) + skills universais (memory, recall, note, rem-sleep, tour, coach) + ramos por nicho."
+    }
+  ]
+}

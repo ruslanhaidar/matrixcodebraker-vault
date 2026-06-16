@@ -100,7 +100,7 @@ Se não → perguntar o que faria sentido pra ela, ajustar.
 
 Internamente:
 
-1. **Atualizar `core/CLAUDE.md`** — sobrescrever seção "Direção"
+1. **Atualizar `CLAUDE.md`** — sobrescrever seção "Direção"
 2. **Marcar `direcao_refinada: true`**
 3. **Criar `personal/memory/project_objetivo-90d.md`**
 4. **Atualizar `personal/PRIMER.md`** — Objetivo Ativo = objetivo de 90 dias
@@ -147,7 +147,7 @@ Cruzar (objetivo, gargalo declarado em `/desabrochar`, ramo, nível IA):
 
 ## Templates de Output
 
-### Seção "Direção" do `core/CLAUDE.md`
+### Seção "Direção" do `CLAUDE.md`
 
 ```markdown
 ## Direção 90 dias

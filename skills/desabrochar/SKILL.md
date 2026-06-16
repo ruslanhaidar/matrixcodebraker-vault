@@ -52,14 +52,34 @@ Esperar "sim", "vamos", "ok", "claro", ou equivalente. Se a pessoa já mandar me
 
 **Princípio:** se a pessoa já tem material dela escrito em algum lugar, eu leio ANTES — daí a entrevista é mais curta, mais precisa, e o setup final imita a voz dela porque eu já vi como ela escreve. Sem material, a entrevista cobre tudo do zero.
 
+#### Pre-flight — checar MarkItDown (executar ANTES de pedir material ao cliente)
+
+**Por quê:** sem MarkItDown, Claude se bate pra ler `.docx`, `.pptx`, `.xlsx`, `.epub`, imagem (OCR), áudio (Whisper). README do setup pede instalar antes do `/desabrochar`, mas validar mesmo assim — leigo pode ter pulado a linha.
+
+Executar via Bash:
+```bash
+markitdown --version
+```
+
+- **Se OK** (retorna versão): seguir direto pra mensagem do cliente.
+- **Se falhar** (comando não encontrado): instalar silenciosamente antes de chamar o cliente:
+  ```bash
+  pip install "markitdown[all]"
+  ```
+  Avisar cliente em UMA linha: *"Só um instante, instalando uma ferramenta de leitura aqui (15s)."* — não explicar mais.
+- **Se `pip` também faltar**: mostrar *"Preciso que você instale Python primeiro: https://python.org/downloads — depois volte e digite `/desabrochar` de novo."* + parar fluxo.
+
 Mensagem pro cliente:
 
 ```
 "Antes das 5 perguntas — você tem algum material seu que eu posso dar uma olhada rápida pra te conhecer melhor?
 
 Tipo:
-• Livro / ebook / apostila que você escreveu (PDF, .md, .txt)
-• Slides ou apresentação (PDF é o mais fácil)
+• Livro / ebook / apostila que você escreveu (PDF, Word, .md, .txt)
+• Slides ou apresentação (PowerPoint ou PDF)
+• Planilha (Excel) com dados seus
+• Imagem com texto (foto de página de livro, print de conversa, screenshot)
+• Áudio (gravação sua falando sobre o que faz)
 • Link da sua página de venda
 • Link do seu Instagram / YouTube / TikTok / site
 
@@ -74,13 +94,16 @@ Esperar resposta.
 
 #### Se cliente mandou material — processar ANTES de seguir
 
-**Tipos suportados nativamente:**
+**Tipos suportados nativamente (MarkItDown instalado no setup):**
 
 | Tipo | Como ler |
 |---|---|
 | `.md` / `.txt` | Read tool direto |
-| `.pdf` | Read tool direto (Claude Code suporta nativo; PDFs > 10 páginas usar `pages: "1-10"` etc) |
-| `.docx` / `.pptx` | Tentar `markitdown` via Bash (`markitdown "arquivo.docx" -o "arquivo.md"`); se não tiver instalado, pedir cliente exportar pra PDF: *"Esse formato não consigo ler direto. Pode salvar como PDF? No Word: File → Save as → PDF."* |
+| `.pdf` | Read tool direto (Claude Code suporta nativo; PDFs > 10 páginas usar `pages: "1-10"` etc). Alternativa pra PDF complexo: `markitdown "arquivo.pdf" -o "arquivo.md"` + Read no `.md` (mais barato em token) |
+| `.docx` / `.pptx` / `.xlsx` / `.epub` | `markitdown "arquivo.ext" -o "arquivo.md"` via Bash + Read no `.md` |
+| Imagem (`.png` / `.jpg` / `.jpeg` / `.webp`) com texto | `markitdown "arquivo.png" -o "arquivo.md"` (OCR via LLM interno) + Read no `.md` |
+| Áudio (`.mp3` / `.wav` / `.m4a`) | `markitdown "arquivo.mp3" -o "arquivo.md"` (transcrição Whisper) + Read no `.md` |
+| `.html` / `.zip` | `markitdown` cobre nativo |
 | URL (página venda, perfil social, blog) | WebFetch tool (extrai texto principal) |
 | Vídeo YouTube | WebFetch na URL pega título + descrição. Transcrição completa não nativo — pedir cliente colar legenda manualmente se quiser |
 
@@ -225,8 +248,8 @@ Mensagem pro cliente (mostrada NO chat enquanto você chama as tools):
 
 **Agora chamar as tools — execute uma a uma, na ordem:**
 
-1. **`Write`** → caminho: `core/CLAUDE.md` — usar o template "core/CLAUDE.md (versão mínima viável pós-Bloco 1)" mais abaixo nesta skill, preenchendo com os dados das respostas (P1 nome, P2 cidade, P3 atividade + ramo detectado, P4 plataformas, P5 gargalo, estilo de resposta calibrado em Passo 3).
-2. **`Read`** → caminho: `core/ramos/<RAMO>/CLAUDE-additions.md` (se o arquivo existir). Pegue o bloco "Voz — regras Claude" do ramo e **`Edit`** no `core/CLAUDE.md` substituindo o placeholder da seção Voz.
+1. **`Write`** → caminho: `CLAUDE.md` (na raiz da pasta aberta pelo cliente — CWD) — usar o template "CLAUDE.md (versão mínima viável pós-Bloco 1)" mais abaixo nesta skill, preenchendo com os dados das respostas (P1 nome, P2 cidade, P3 atividade + ramo detectado, P4 plataformas, P5 gargalo, estilo de resposta calibrado em Passo 3).
+2. **`Read`** → caminho: `${CLAUDE_PLUGIN_ROOT}/core/ramos/<RAMO>/CLAUDE-additions.md` (se o arquivo existir). Pegue o bloco "Voz — regras Claude" do ramo e **`Edit`** no `CLAUDE.md` substituindo o placeholder da seção Voz.
 3. **`Write`** → caminho: `personal/PRIMER.md` — template:
    ```markdown
    # PRIMER pessoal
@@ -238,15 +261,17 @@ Mensagem pro cliente (mostrada NO chat enquanto você chama as tools):
 4. **`Write`** → caminho: `personal/CHECKLIST.md` — usar o template "personal/CHECKLIST.md (5 missões D+0..D+7 calibradas)" mais abaixo, preenchendo a missão D+0 com a TAREFA CALIBRADA AO GARGALO (mesma tabela do Passo 6).
 5. **`Write`** → caminho: `personal/memory/user_perfil.md` — usar o template `personal/memory/user_perfil.md` mais abaixo nesta skill, preenchendo todos os campos.
 6. **Se houve material em Passo 1.5**: confirmar (`Read`) que `personal/memory/material_briefing.md` JÁ existe (você o criou no Passo 1.5). Se não existe, criar agora via `Write` com os dados extraídos. Depois `Edit` no `user_perfil.md` adicionando 1 linha: `Voz e temas: ver [[material_briefing]]`.
-7. **`Edit`** → no `core/CLAUDE.md` que você acabou de criar, alterar o frontmatter pra incluir `desabrochado: true` + `data_desabrochar: YYYY-MM-DD` (data de hoje).
-8. **`Bash`** → setar identity Git LOCAL no clone (pra commits futuros não quebrarem com "Author identity unknown"). Comando:
+7. **`Edit`** → no `CLAUDE.md` que você acabou de criar, alterar o frontmatter pra incluir `desabrochado: true` + `data_desabrochar: YYYY-MM-DD` (data de hoje).
+8. **`Bash` (CONDICIONAL — só se há repositório Git na CWD):** rodar `git rev-parse --is-inside-work-tree 2>/dev/null`. Se retornar `true`, setar identity Git LOCAL:
    ```bash
    git config user.name "[NOME]"
    git config user.email "[NOME-SLUG]@matrixcodebraker.local"
    ```
    Onde `[NOME-SLUG]` é o nome em kebab-case minúsculo (ex: "Maria Silva" → `maria-silva`).
 
-   > **Por que sem `--global`:** se o cliente já usa Git pra outras coisas, NUNCA sobrescrever config global dele. Local-only afeta só este clone. Por que `@matrixcodebraker.local`: cliente leigo não tem GitHub nem entende email-de-commit; placeholder funciona pra commit local e não vaza email pessoal pra qualquer fork público. Se cliente quiser sync real com GitHub depois, troca via `/atualizar` ou manual.
+   > **Quando rodar:** só se a pasta do cliente é um clone Git (modelo legado clone-and-go). No modelo plugin marketplace (default a partir de 06/2026), a pasta do cliente NÃO tem `.git/` — pular este item. **NÃO criar `git init` aqui** — se o cliente quiser versionamento, ele inicializa por conta própria.
+   >
+   > **Por que sem `--global`:** se o cliente já usa Git pra outras coisas, NUNCA sobrescrever config global dele. Por que `@matrixcodebraker.local`: cliente leigo não tem GitHub nem entende email-de-commit; placeholder funciona pra commit local e não vaza email pessoal pra qualquer fork público.
 
 ### Passo 4.5 — Verificação obrigatória (CHECKPOINT antes de seguir)
 
@@ -254,15 +279,15 @@ Mensagem pro cliente (mostrada NO chat enquanto você chama as tools):
 
 Execute em ordem:
 
-1. `Read` em `core/CLAUDE.md` → confirma que existe + frontmatter tem `desabrochado: true` + corpo preenchido com o nome do cliente
+1. `Read` em `CLAUDE.md` (raiz da CWD) → confirma que existe + frontmatter tem `desabrochado: true` + corpo preenchido com o nome do cliente
 2. `Read` em `personal/PRIMER.md` → confirma que existe
 3. `Read` em `personal/CHECKLIST.md` → confirma que existe + tem 5 itens + D+0 está preenchido com tarefa calibrada
 4. `Read` em `personal/memory/user_perfil.md` → confirma que existe + tem nome, cidade, ramo, plataformas, gargalo
-5. `Bash` em `git config user.email` → confirma retorno NÃO-vazio (Passo 4 item 8 setou identity local; se vazio, refazer). Sem isso, qualquer skill futura que commitar vai bater em "Author identity unknown" e quebrar pra cliente leigo.
+5. **CONDICIONAL — só se CWD é repositório Git** (Passo 4 item 8 rodou): `Bash` em `git config user.email` → confirma retorno NÃO-vazio. Sem isso, qualquer skill futura que commitar quebra com "Author identity unknown". No modelo plugin (sem `.git/` na CWD), PULAR este item.
 
-**Se todos 5 existem com conteúdo real:** seguir Passo 5.
+**Se itens 1-4 (e 5 se aplicável) existem com conteúdo real:** seguir Passo 5.
 
-**Se 1+ falha:** mostrar pro cliente *"Espera um segundo, vou refazer um arquivo que ficou faltando."* — voltar no item correspondente do Passo 4, refazer com `Write` (ou `Bash` pra item 5), recheckar. Não seguir até tudo verde.
+**Se 1+ falha:** mostrar pro cliente *"Espera um segundo, vou refazer um arquivo que ficou faltando."* — voltar no item correspondente do Passo 4, refazer com `Write` (ou `Bash` pra item 8), recheckar. Não seguir até tudo verde.
 
 > **Por que esta verificação existe:** teste #1 (28/05/2026) — Claude fez a entrevista inteira, anunciou "configurado", e fechou a sessão sem ter chamado Write nenhuma vez. Cliente perdeu setup. Foi preciso Ruslan re-onboardar manualmente por telefone. NUNCA MAIS.
 
@@ -327,7 +352,7 @@ Se "depois" pra ambos → despedir normalmente.
 
 ## Templates de Output
 
-### `core/CLAUDE.md` (versão mínima viável pós-Bloco 1)
+### `CLAUDE.md` na raiz da CWD (versão mínima viável pós-Bloco 1)
 
 ```markdown
 ---
@@ -353,7 +378,7 @@ direcao_refinada: false
 
 ## Ramo
 
-[RAMO] — pacote carregado de `core/ramos/[RAMO]/`. Regras de voz e exemplos do nicho aplicados.
+[RAMO] — pacote carregado de `${CLAUDE_PLUGIN_ROOT}/core/ramos/[RAMO]/`. Regras de voz e exemplos do nicho aplicados.
 
 ## Voz — regras Claude
 
@@ -365,7 +390,7 @@ direcao_refinada: false
 
 ## Regras universais herdadas
 
-[Linkar regras gerais do core. Cliente sobrescreve via overrides/]
+Regras gerais carregadas do plugin (`${CLAUDE_PLUGIN_ROOT}/core/`). Cliente sobrescreve via `overrides/` na raiz da CWD.
 ```
 
 ### `personal/CHECKLIST.md` (5 missões D+0..D+7 calibradas)
@@ -405,7 +430,7 @@ data_criado: [YYYY-MM-DD]
 | Travada/insegura | Acolher: *"Não tem certo nem errado. Primeira coisa que vier."* |
 | Tenta entrar em outro assunto | Acolher e voltar: *"Entendi. Anoto pra gente conversar depois. Voltando à pergunta..."* |
 | Resposta em formato técnico (faltou Lente do Leigo) | Reformular sem jargão: traduz e pergunta de novo |
-| Mandou material em formato não suportado (.docx/.pptx sem markitdown) | Pedir exportar pra PDF: *"Word? Salva como PDF (File → Save as → PDF) e arrasta de novo."* |
+| Mandou material e MarkItDown falhou no pre-flight (sem Python/pip) | Pedir cliente instalar Python (https://python.org/downloads) + rodar `pip install "markitdown[all]"`. Se urgente, fallback: exportar pra PDF e mandar de novo |
 | Mandou link mas WebFetch falhou (página com login, JS pesado) | Pedir cliente colar texto manualmente: *"Não consegui abrir o link. Cola aqui o texto da bio/sobre/descrição que tem nele."* |
 | Material gigante (livro inteiro 300 páginas) | Ler só os primeiros 30-40k caracteres + sumário/conclusão. Não tentar processar tudo |
 

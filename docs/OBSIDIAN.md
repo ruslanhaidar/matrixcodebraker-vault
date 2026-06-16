@@ -33,32 +33,27 @@ publico: cliente-final
 Quando abrir Obsidian pela primeira vez:
 
 1. Clica em **Open folder as vault**
-2. Navega até a pasta `matrixcodebraker-vault` (a mesma que você abriu no Claude Code)
-3. Confirma — Obsidian já carrega tudo, inclusive a configuração que vem no `.obsidian/` do repo (file explorer ligado, grafo ligado, daily notes apontando pra `personal/100-PROJETOS/onboarding/daily/`)
+2. Navega até **a mesma pasta** que você abriu no Claude Code (a pasta onde tá seu `CLAUDE.md` + `personal/` + `overrides/`)
+3. Confirma — Obsidian gera config default e carrega tudo
 
 Pronto. Você já vê sua pasta com cara de caderno.
 
+> **Dica:** se quiser daily notes apontando pro lugar certo da galera Matrix Code Braker, em **Settings → Core plugins → Daily notes**, ajuste "New file location" pra `personal/100-PROJETOS/onboarding/daily/`. Não é obrigatório — `/matrixcodebraker:rem-sleep` cria no path certo automaticamente independente disso.
+
 ---
 
-## Passo 3 — Instalar o plugin **obsidian-skills** (opcional, +5 min)
+## Passo 3 — Plugin **obsidian-skills** (experimental, opcional)
 
-O plugin `obsidian-skills` faz os mesmos comandos `/desabrochar`, `/recall`, `/memory`, `/note`, `/rem-sleep` funcionarem **dentro do Obsidian também** — não só no Claude Code.
+O plugin `obsidian-skills` existe na comunidade Obsidian e tenta rodar comandos `/recall`, `/memory`, etc. dentro do Obsidian. **Importante:** ele lê skills de `.claude/skills/` ou `~/.claude/skills/`, mas o Matrix Code Braker é distribuído como plugin Claude Code (mora em `~/.claude/plugins/`). Pode ser que `obsidian-skills` não enxergue as skills automaticamente.
 
-### Como instalar
+**Recomendação por enquanto:** roda os comandos no Claude Code mesmo. Obsidian fica só pra navegação visual. Quando `obsidian-skills` suportar lookup de plugins Claude Code, atualizo este doc.
 
-1. No Obsidian, abre **Settings** (ícone de engrenagem, canto inferior esquerdo)
-2. **Community plugins** → **Turn on community plugins** (confirma o aviso de segurança)
-3. **Browse** → busca "**Claude Skills**" ou "**obsidian-skills**"
-4. **Install** → **Enable**
-5. Reinicia o Obsidian
+Se quiser tentar mesmo assim:
 
-### Como usar
-
-- Abre a Command Palette (`Ctrl+P` / `Cmd+P`)
-- Digita `Skill: ` e escolhe o comando (ex: `Skill: recall`)
-- Ou cria atalho de teclado em **Settings → Hotkeys**
-
-> **Atalho que funciona em qualquer momento:** `Ctrl+P` → `Skill: rem-sleep` no fim do dia. Equivalente a digitar `/rem-sleep` no Claude Code.
+1. No Obsidian, abre **Settings** → **Community plugins** → **Turn on community plugins**
+2. **Browse** → busca "**Claude Skills**" ou "**obsidian-skills**"
+3. **Install** → **Enable** → reinicia Obsidian
+4. Testa: `Ctrl+P` → digita `Skill:` — se aparecer lista, funcionou. Se vier vazio, plugin não pegou as skills do Matrix Code Braker.
 
 ---
 
@@ -86,7 +81,7 @@ R: Não. É a MESMA pasta. O Claude lê o arquivo atualizado na próxima sessão
 R: Não. É só pra rodar `/rem-sleep` etc. dentro do Obsidian. Você pode sempre voltar pro Claude Code pra rodar comandos.
 
 **P: Mexer no `.obsidian/` quebra alguma coisa?**
-R: Não — é só configuração visual do Obsidian. Pode customizar à vontade (mas vai pro `overrides/` se quiser preservar em update de core).
+R: Não — é só configuração visual do Obsidian. Pode customizar à vontade. Vive na sua pasta, não tem nada a ver com o plugin Matrix Code Braker.
 
 ---
 
@@ -102,8 +97,8 @@ R: Não — é só configuração visual do Obsidian. Pode customizar à vontade
 
 Depois de instalar e abrir o vault, volta pro Claude Code e digita:
 
-```
-/tour
+```text
+/matrixcodebraker:tour
 ```
 
 Eu te mostro como os arquivos conversam entre Claude Code e Obsidian na prática.

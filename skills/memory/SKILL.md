@@ -24,7 +24,7 @@ description: Salva fatos, decisões e configurações em UM destino único, esco
 
 | Tipo de fato | Destino | Quando usar |
 |---|---|---|
-| **Regra durável / preferência permanente** | `core/000-META/CLAUDE-base.md` (se override) ou `overrides/voice-rules.md` | "Sempre fazer X", "Nunca usar Y", convenção que vale pra todos os projetos do cliente |
+| **Regra durável / preferência permanente** | `overrides/voice-rules.md` (ou `CLAUDE.md` se vai sobrescrever o gerado pelo `/desabrochar`) | "Sempre fazer X", "Nunca usar Y", convenção que vale pra todos os projetos do cliente |
 | **Estado de projeto específico** (objetivo, próximo passo, blocker) | `personal/100-PROJETOS/<slug>/PRIMER.md` | Decisão que muda o que está sendo feito num projeto |
 | **Tarefa pendente** | `personal/100-PROJETOS/<slug>/CHECKLIST.md` se existir, senão `personal/CHECKLIST.md` global | "Fazer X até Y" |
 | **Acontecimento cronológico** (decisão grande, milestone) | `personal/log.md` (append-only) | Algo digno de linha do tempo |

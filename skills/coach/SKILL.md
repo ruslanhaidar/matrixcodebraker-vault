@@ -95,7 +95,7 @@ Se cliente topar, ficar com ele até a missão estar marcada `[x]`. Não desviar
 
 **Princípio:** cliente leigo não pede capacidade que não sabe que existe. Coach detecta gargalo declarado/repetido + capacidade que destrava + oferece NA HORA DA DOR.
 
-**Catálogo:** `core/000-META/capacidades-progressivas.md`. Coach lê esse arquivo quando vai oferecer.
+**Catálogo:** `${CLAUDE_PLUGIN_ROOT}/core/000-META/capacidades-progressivas.md` (mora no plugin, não na pasta do cliente). Coach lê esse arquivo quando vai oferecer.
 
 ### Triggers de oferta proativa
 

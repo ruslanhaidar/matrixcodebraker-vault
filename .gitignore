@@ -1,0 +1,15 @@
+# Local Claude Code scope (criado por `claude plugin marketplace add --scope local`)
+.claude/settings.local.json
+.claude/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# Logs e temp
+*.log
+*.tmp

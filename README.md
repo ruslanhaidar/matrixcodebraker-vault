@@ -1,6 +1,8 @@
-# Matrix Code Braker — Core Vault
+# Matrix Code Braker
 
-> Setup Claude pré-configurado pra você caminhar rumo a R$1.500+/mês via IA. **Esse é o seu vault.**
+> Plugin Claude Code que calibra a IA pro seu jeito. Setup guiado por entrevista (5 perguntas, 2 min). Liberar tempo + caminho rumo a R$1.500+/mês com IA.
+
+[![Plugin Claude Code](https://img.shields.io/badge/plugin-claude--code-purple)](https://docs.claude.com/en/docs/claude-code/plugins)
 
 ---
 
@@ -8,84 +10,162 @@
 
 **Liberar a pessoa do trabalho fazendo ≥ R$1.500/mês com IA.**
 
-Toda decisão deste setup se ajoelha pra essa frase. Conteúdo, ferramenta, sugestão minha — se não te aproxima do objetivo, não entra.
+Toda skill, ramo, sugestão. Se não te aproxima desse objetivo, não entra.
 
 ---
 
-## 🚀 Primeiro uso — 5 minutos
+## 🚀 Como instalar (3 comandos, sem terminal)
 
-1. **Instale o Claude Code** ([baixar aqui](https://claude.com/claude-code))
-2. **Abra esta pasta no Claude Code** (File → Open Folder)
-3. **Digite `/desabrochar`** (ou só "oi" — eu te chamo)
-4. Respondo 5 perguntinhas rápidas (~2 min) e seu setup tá calibrado
-5. **No fim do dia, digite `/rem-sleep`** — eu consolido o que mudou (daily, PRIMER, log)
+### Pré-requisitos
 
-Pronto. Daí já vai pra primeira tarefa concreta — algo entregue em 5 min.
+1. **[Claude Code](https://claude.com/claude-code)** instalado e logado
+2. **MarkItDown** (1 linha no terminal, opcional mas recomendado):
+   ```bash
+   pip install "markitdown[all]"
+   ```
+   → permite eu ler PDF, Word, PowerPoint, Excel, imagem, áudio que você mandar
+3. **Python 3.10+** (se ainda não tiver, instalar de [python.org/downloads](https://python.org/downloads))
 
-> **Bônus visual — Obsidian.** O vault é só markdown. Você pode (opcional, recomendado) abrir a MESMA pasta no [Obsidian](https://obsidian.md) pra navegar visualmente os arquivos, ver wikilinks, grafo de conexões. Detalhes em [`docs/OBSIDIAN.md`](docs/OBSIDIAN.md) — instalar, abrir o vault, plugin de skills.
+### Instalação
 
----
+Abre o Claude Code em qualquer pasta (vazia, de preferência — vai virar sua pasta de trabalho). Cola na conversa, um por vez:
 
-## 📁 Estrutura do vault
-
-```
-matrix-code-braker-vault/
-├── .claude/skills/      ← skills que dão poderes ao Claude (carregam na raiz)
-│
-├── core/                ← gerenciado por nós · NÃO EDITE
-│   ├── 000-META/
-│   │   ├── CLAUDE-base.md      ← template (vira CLAUDE.md após /desabrochar)
-│   │   └── templates/
-│   └── README.md
-│
-├── personal/            ← seu espaço · 100% seu
-│   ├── 100-PROJETOS/    ← um por projeto/cliente/iniciativa
-│   ├── memory/          ← suas memórias persistentes
-│   ├── PRIMER.md        ← seu objetivo ativo
-│   ├── CHECKLIST.md     ← suas tarefas
-│   └── log.md           ← linha do tempo do que aconteceu
-│
-└── overrides/           ← suas regras próprias · precedência sobre core
-    └── README.md
+```text
+/plugin marketplace add ruslanhaidar/matrixcodebraker-vault
 ```
 
-**Regra de ouro:** mudou minha cabeça? Edite `overrides/`, não `core/`. Atualizações do core chegam via `/atualizar` sem quebrar suas customizações.
+```text
+/plugin install matrixcodebraker@matrixcodebraker-vault
+```
+
+```text
+/matrixcodebraker:desabrochar
+```
+
+Pronto. Responde as 5 perguntas (~2 min) e seu setup tá calibrado.
 
 ---
 
-## 🧭 Comandos que você vai usar todo dia
+## 🧭 Comandos que você vai usar
+
+Todos os comandos são prefixados com `/matrixcodebraker:` quando rodando no Claude Code (pra não conflitar com outros plugins).
 
 | Comando | Quando |
 |---|---|
-| `/desabrochar` | Primeira sessão — entrevista de calibração |
-| `/recall` | Antes de qualquer tarefa nova — eu te dou contexto |
-| `/memory salva [fato]` | Guardar fato/decisão importante |
-| `/note [ideia]` | Capturar ideia rápida sem cerimônia |
-| `/rem-sleep` | Fim do dia — consolido o que mudou |
-| `/atualizar` | Quando quiser puxar updates do core |
-| `/tour` | Tour rápido depois da entrevista |
+| `/matrixcodebraker:desabrochar` | Primeira sessão — entrevista de calibração |
+| `/matrixcodebraker:recall` | Antes de tarefa nova — eu trago contexto |
+| `/matrixcodebraker:memory` | Guardar fato/decisão importante |
+| `/matrixcodebraker:note` | Capturar ideia rápida sem cerimônia |
+| `/matrixcodebraker:rem-sleep` | Fim do dia — consolido o que mudou |
+| `/matrixcodebraker:tour` | Tour pós-entrevista (4 comandos básicos) |
+| `/matrixcodebraker:o-que-voce-faz` | "Me mostra o que você sabe fazer pra mim agora" |
+| `/matrixcodebraker:refinar-voz` | Missão D+1 — Claude imita seu jeito de falar |
+| `/matrixcodebraker:refinar-direcao` | Missão D+3 — direção de 90 dias |
+| `/matrixcodebraker:destravar` | Missão D+5 — plano concreto de 90 dias |
+| `/matrixcodebraker:coach` | Sugestão de próximo passo quando travada |
+| `/matrixcodebraker:atualizar` | Puxa updates do plugin |
+
+> **Atalho:** se a pessoa só falar "oi" ou "começar", a skill `/desabrochar` é disparada automaticamente quando o plugin detecta primeira sessão.
 
 ---
 
-## 🔄 Como funcionam as atualizações
+## 📁 Como ficam as pastas
 
-Sua versão do core fica linkada ao repositório oficial via Git. Quando lançamos:
-- Skills novas
-- Bug fixes
-- Templates melhorados
+### Plugin (mora em `~/.claude/plugins/...` — auto-gerenciado)
 
-Você roda `/atualizar` (ou aceita atualização automática mensal). **Nada do seu `personal/` ou `overrides/` é tocado.** Apenas `core/` é atualizado.
+```
+matrixcodebraker/
+├── .claude-plugin/
+│   ├── plugin.json         ← manifest do plugin
+│   └── marketplace.json    ← catálogo
+├── skills/                 ← 12 skills (desabrochar, recall, memory, note, ...)
+├── core/                   ← templates + ramos por nicho (read-only)
+└── docs/                   ← documentação (Obsidian, FAQ)
+```
+
+Você nunca toca aqui. Updates chegam via `/matrixcodebraker:atualizar`.
+
+### Sua pasta de trabalho (onde você abriu o Claude Code)
+
+Depois do `/desabrochar`, sua pasta fica assim:
+
+```
+sua-pasta/
+├── CLAUDE.md               ← suas regras pro Claude (gerado pela entrevista)
+├── personal/
+│   ├── PRIMER.md           ← seu objetivo ativo + próximos passos
+│   ├── CHECKLIST.md        ← suas tarefas
+│   ├── log.md              ← linha do tempo do que aconteceu
+│   ├── memory/             ← memórias persistentes sobre você
+│   └── 100-PROJETOS/       ← um folder por projeto/cliente
+└── overrides/              ← regras suas que sobrescrevem o padrão
+```
+
+**Regra de ouro:** seu CLAUDE.md, personal/ e overrides/ são INTOCÁVEIS pelo plugin. Updates só mexem na pasta do plugin (que mora fora).
+
+---
+
+## 🔄 Atualizações
+
+Quando lançamos skills novas, ramos novos ou correções:
+
+```text
+/matrixcodebraker:atualizar
+```
+
+Ou direto:
+
+```text
+/plugin update matrixcodebraker@matrixcodebraker-vault
+/reload-plugins
+```
+
+Nada do seu CLAUDE.md, personal/ ou overrides/ é tocado.
+
+---
+
+## 🌳 Ramos por nicho
+
+O plugin detecta seu ramo na entrevista (`/desabrochar`) e carrega regras específicas do nicho:
+
+- `criador-conteudo` — Reels, TikTok, posts, copy de conteúdo (ativo)
+- `e-commerce` (planejado)
+- `infoprodutor` (planejado)
+- `espiritual` (planejado)
+- `fitness` (planejado)
+- `financas` (planejado)
+- `empregada-buscando-saida` (planejado)
+- `educacao` (planejado)
+- `generico` — fallback se não bater com nada
+
+Ramos vivem em `core/ramos/<ramo>/` dentro do plugin.
 
 ---
 
 ## 🆘 Travou em algum passo?
 
-- Comunidade peer-to-peer: [link Telegram/Discord — preencher na release]
-- Suporte direto Ruslan + Ahmed: 1x/semana ao vivo
-- FAQ vivo: [link — preencher na release]
+- **Erro no `/plugin marketplace add`:** confirma que está logado no Claude Code (`/login`)
+- **`/matrixcodebraker:desabrochar` não aparece:** rodar `/reload-plugins`
+- **MarkItDown não instala:** instalar Python primeiro ([python.org](https://python.org/downloads))
+- **Outros:** abrir issue em [github.com/ruslanhaidar/matrixcodebraker-vault/issues](https://github.com/ruslanhaidar/matrixcodebraker-vault/issues)
 
 ---
 
 ## 📜 Licença
 
-Uso pessoal. Não redistribuir sem autorização. Detalhes em `LICENSE.md` (a criar antes da release).
+Uso pessoal. Não redistribuir sem autorização. Detalhes em `LICENSE.md` (a criar antes da release pública).
+
+---
+
+## 🛠️ Para devs/colaboradores
+
+Estrutura do plugin segue [doc oficial Claude Code](https://code.claude.com/docs/en/plugins). Pra testar local:
+
+```bash
+git clone https://github.com/ruslanhaidar/matrixcodebraker-vault
+claude --plugin-dir ./matrixcodebraker-vault
+```
+
+Skills moram em `skills/<nome>/SKILL.md`. Manifest do plugin em `.claude-plugin/plugin.json`. Marketplace em `.claude-plugin/marketplace.json`.
+
+PRs e issues bem-vindas.

@@ -41,7 +41,7 @@ Se cliente pediu explicitamente "/recall global" → **recall global**.
 
 ### Recall focado (default — projeto detectado)
 
-1. **`core/000-META/CLAUDE-base.md`** + **CLAUDE.md** personalizado (se desabrochado)
+1. **`CLAUDE.md`** personalizado (raiz da CWD, gerado por `/desabrochar`)
 2. **PRIMER local** — `personal/100-PROJETOS/<slug>/PRIMER.md`
 3. **Última daily do slug** (se houver) — glob `personal/100-PROJETOS/<slug>/daily/*.md`, ler a mais recente
 4. **`overrides/`** — qualquer regra customizada do cliente que afete este contexto

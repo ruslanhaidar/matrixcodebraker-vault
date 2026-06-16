@@ -34,10 +34,10 @@ Cada capacidade apresentada se ajoelha ao Artigo 1: aproxima a pessoa de R$1.500
 ### Passo 1 — Detectar contexto
 
 Ler:
-- `core/CLAUDE.md` — frontmatter pra saber estágio, ramo, nível IA, voz_refinada, direcao_refinada
+- `CLAUDE.md` (raiz da CWD) — frontmatter pra saber estágio, ramo, nível IA, voz_refinada, direcao_refinada
 - `personal/CHECKLIST.md` — quantas missões marcadas (proxy do estágio real)
 - `personal/log.md` — última atividade real (calibra se cliente está em flow ou parado)
-- `core/000-META/capacidades-progressivas.md` — catálogo com capacidades por nível
+- `${CLAUDE_PLUGIN_ROOT}/core/000-META/capacidades-progressivas.md` — catálogo com capacidades por nível (mora no plugin)
 
 ### Passo 2 — Calcular estágio efetivo
 
