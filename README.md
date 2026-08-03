@@ -16,6 +16,8 @@ Toda skill, ramo, sugestão. Se não te aproxima desse objetivo, não entra.
 
 ## 🚀 Como instalar (3 comandos, sem terminal)
 
+> **Nunca usou o Claude Code?** Começa pelo guia do zero, com todos os cliques: [docs/INSTALACAO.md](docs/INSTALACAO.md) (~15 min).
+
 ### Pré-requisitos
 
 1. **[Claude Code](https://claude.com/claude-code)** instalado e logado
@@ -53,6 +55,7 @@ Todos os comandos são prefixados com `/matrixcodebraker:` quando rodando no Cla
 | Comando | Quando |
 |---|---|
 | `/matrixcodebraker:desabrochar` | Primeira sessão — entrevista de calibração |
+| `/matrixcodebraker:montar-ambiente` | Ambiente completo — Obsidian configurado + pastas organizadas (guiado) |
 | `/matrixcodebraker:recall` | Antes de tarefa nova — eu trago contexto |
 | `/matrixcodebraker:memory` | Guardar fato/decisão importante |
 | `/matrixcodebraker:note` | Capturar ideia rápida sem cerimônia |
@@ -78,7 +81,7 @@ matrixcodebraker/
 ├── .claude-plugin/
 │   ├── plugin.json         ← manifest do plugin
 │   └── marketplace.json    ← catálogo
-├── skills/                 ← 12 skills (desabrochar, recall, memory, note, ...)
+├── skills/                 ← 13 skills (desabrochar, montar-ambiente, recall, memory, note, ...)
 ├── core/                   ← templates + ramos por nicho (read-only)
 └── docs/                   ← documentação (Obsidian, FAQ)
 ```
@@ -102,6 +105,8 @@ sua-pasta/
 ```
 
 **Regra de ouro:** seu CLAUDE.md, personal/ e overrides/ são INTOCÁVEIS pelo plugin. Updates só mexem na pasta do plugin (que mora fora).
+
+> **Ambiente completo:** rodando `/matrixcodebraker:montar-ambiente` depois da entrevista, a pasta ganha a config do Obsidian (`.obsidian/` — diário automático, corretor pt-BR, anexos organizados) + a estrutura de pastas do seu ramo (`200-PRODUCAO/`, `300-RECURSOS/`, `400-ARQUIVO/`...). Tudo guiado, você não configura nada na mão.
 
 ---
 

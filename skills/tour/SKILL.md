@@ -83,18 +83,18 @@ Tenta agora: digita `/rem-sleep` (ou 'fecha o dia') pra eu criar a sua daily ini
 
 Esperar cliente executar (mesmo que rem-sleep só registre "dia de instalação" — fixa hábito + cria 1ª daily).
 
-### Passo 3 — Bônus: Obsidian (opcional, 2min)
+### Passo 3 — Montar o ambiente (5 min, guiado)
 
-Antes de propor a primeira missão, oferecer o bônus visual:
+Antes de propor a primeira missão, deixar o "caderno" da pessoa completo — programa visual instalado e configurado + pastas organizadas. Quem faz o trabalho pesado é a skill `/montar-ambiente` (idempotente, com checkpoints por fase):
 
 ```
-"Bônus rápido (opcional, 2min) — sua pasta inteira também abre num programa chamado Obsidian (grátis). Ele mostra os arquivos visualmente, tipo caderno bonito + grafo de conexões. Quer que eu te guie a abrir agora?
+"Pra fechar o dia 1 com chave de ouro: vou deixar seu caderno digital pronto — um programa grátis pra ver seus arquivos com cara de caderno bonito + suas gavetas organizadas. Uns 5 minutinhos, eu te guio em cada passo. Bora?
 
-(Responde 'Obsidian sim' / 'depois')"
+(Responde 'bora' / 'depois')"
 ```
 
-Se "sim" → seguir `${CLAUDE_PLUGIN_ROOT}/docs/OBSIDIAN.md` passo a passo (instalar Obsidian → abrir esta pasta como vault → instalar plugin obsidian-skills pra slash-commands rodarem dentro do Obsidian também).
-Se "depois" → seguir Passo 4 direto.
+Se "bora" → rodar `/montar-ambiente` agora (ele detecta o que falta: Obsidian, config `.obsidian/`, estrutura de pastas do ramo — e guia fase a fase).
+Se "depois" → `Edit` no `personal/CHECKLIST.md` adicionando em D+1: `- [ ] **D+1** — Montar o ambiente visual (5min, guiado): pedir "monta meu ambiente"` — e seguir Passo 4.
 
 ### Passo 4 — Sugerir primeira missão
 

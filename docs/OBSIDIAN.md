@@ -8,6 +8,8 @@ publico: cliente-final
 
 > **Esse passo é opcional.** O setup funciona 100% só no Claude Code. Obsidian é um plus se você curte navegar visualmente.
 
+> **Caminho normal (recomendado):** a skill `/matrixcodebraker:montar-ambiente` faz tudo isso guiada — inclusive escreve as configurações do Obsidian por você. Este doc é a versão manual, pra quem quer entender ou fazer na mão.
+
 ---
 
 ## Por que usar Obsidian junto?
@@ -38,7 +40,7 @@ Quando abrir Obsidian pela primeira vez:
 
 Pronto. Você já vê sua pasta com cara de caderno.
 
-> **Dica:** se quiser daily notes apontando pro lugar certo da galera Matrix Code Braker, em **Settings → Core plugins → Daily notes**, ajuste "New file location" pra `personal/100-PROJETOS/onboarding/daily/`. Não é obrigatório — `/matrixcodebraker:rem-sleep` cria no path certo automaticamente independente disso.
+> **Diário automático:** se o Claude já escreveu a config via `/matrixcodebraker:montar-ambiente`, o diário já aponta pra `personal/100-PROJETOS/onboarding/daily/` — não precisa ajustar nada em Settings. Fazendo manual (sem a skill), ajuste em **Settings → Core plugins → Daily notes** o "New file location" pra esse mesmo path.
 
 ---
 

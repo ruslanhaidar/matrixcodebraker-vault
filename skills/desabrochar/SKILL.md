@@ -341,12 +341,12 @@ Amanhã ou depois quando quiser, é só voltar e me pedir o próximo passo. Eu l
 
 Em 1-3 dias eu vou te oferecer 4 perguntas extras pra refinar meu jeito ao seu — mas só se você quiser. Tá tudo OK funcionar como tá agora.
 
-✨ **Bônus opcional** — essa pasta toda também abre num programa chamado Obsidian (grátis), que mostra os seus arquivos visualmente, tipo um caderno bonito. Quer que eu te ensine? (responde 'Obsidian sim' ou 'depois'). Se sim, eu te guio pelo passo a passo de `docs/OBSIDIAN.md`."
+✨ **Último passo (5 min, opcional)** — posso deixar seu caderno digital pronto agora: um programa grátis pra ver seus arquivos com cara de caderno bonito + suas gavetas organizadas. Eu faço a parte técnica, você só instala o programa. Bora? (responde 'bora' ou 'deixa pra depois')."
 ```
 
 Se "fecha o dia" → rodar `/rem-sleep` agora (cria a primeira daily, fixa hábito).
-Se "Obsidian sim" → seguir passo a passo de `docs/OBSIDIAN.md` (instalar → abrir vault → plugin de skills).
-Se "depois" pra ambos → despedir normalmente.
+Se "bora" → rodar `/montar-ambiente` (instalação guiada do Obsidian + config pronta escrita por você + pastas organizadas).
+Se "deixa pra depois" → `Edit` no `personal/CHECKLIST.md` adicionando em D+1: `- [ ] **D+1** — Montar o ambiente visual (5min, guiado): pedir "monta meu ambiente"` — e despedir normalmente.
 
 ---
 

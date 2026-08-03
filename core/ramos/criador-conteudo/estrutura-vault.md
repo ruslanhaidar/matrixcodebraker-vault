@@ -1,6 +1,6 @@
 # Estrutura de Vault — Ramo Criador de Conteúdo
 
-> Template de pastas que `/desabrochar` cria automaticamente em `personal/` pro cliente do ramo criador-conteudo. Estrutura sugerida — cliente pode mudar.
+> Template de pastas que `/montar-ambiente` cria automaticamente em `personal/` pro cliente do ramo criador-conteudo. Estrutura sugerida — cliente pode mudar.
 
 ---
 
@@ -53,7 +53,7 @@ personal/
 
 ## O que o cliente NÃO vê
 
-A pasta nasce pronta no `/desabrochar` — cliente abre Obsidian/Claude Desktop e a estrutura já tá lá. Ele não precisa criar nada manualmente.
+A pasta nasce pronta no `/montar-ambiente` — cliente abre Obsidian/Claude Desktop e a estrutura já tá lá. Ele não precisa criar nada manualmente.
 
 O cliente pode RENOMEAR ou MUDAR. Claude detecta a mudança no próximo `/recall` e respeita a nova estrutura sem reclamar.
 
