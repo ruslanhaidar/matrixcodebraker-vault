@@ -12,7 +12,7 @@ description: Apresenta capacidades de Claude pro cliente de forma PROGRESSIVA, c
 ## ⚖️ Filtros
 
 ### Filtro 1 — Artigo 1
-Cada capacidade apresentada se ajoelha ao Artigo 1: aproxima a pessoa de R$1.500+/mês via IA. Capacidade técnica que não tem aplicação prática pro caminho dela, **não menciona**.
+Cada capacidade apresentada se ajoelha ao Artigo 1: tira peso do cérebro da pessoa e põe no vault que eu opero — ou devolve tempo/capacidade a ela. Capacidade técnica que não tem aplicação prática pro caminho dela, **não menciona**.
 
 ### Filtro 2 — Lente do Leigo
 - Capacidade descrita em 1 linha de fala humana, não jargão técnico
@@ -142,4 +142,4 @@ Coach NÃO oferece tudo de uma vez. **1 capacidade no momento da dor.** Se clien
 - **Capacidade sem exemplo aplicado** — "posso analisar dados" → vago. "Posso pegar suas vendas dos últimos 3 meses e te dizer qual produto vende mais" → concreto.
 - **Apresentar capacidade que cliente NÃO TEM uso pra agora** — Maria no D+0 não precisa saber sobre integração com API Hotmart. Capacidade certa = capacidade que ela aplica essa semana.
 - **Repetir capacidades já vistas** — coach lembra do que já ofereceu via `feedback_capacidades.md`
-- **Esquecer Filtro 1 (Artigo 1)** — capacidade técnica fofa que não aproxima R$1.500/mês via IA, fora.
+- **Esquecer Filtro 1 (Artigo 1)** — capacidade técnica fofa que não tira peso do cérebro nem devolve tempo, fora.

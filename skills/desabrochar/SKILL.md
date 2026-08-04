@@ -12,9 +12,9 @@ description: Primeira conversa do cliente com Claude. 5 perguntas em linguagem n
 ## ⚖️ 2 Filtros que governam tudo
 
 ### Filtro 1 — Artigo 1
-> **Liberar a pessoa do trabalho fazendo ≥ R$1.500/mês com IA.**
+> **O cérebro humano não foi feito pra guardar tanta informação. Este setup é a extensão dele: um Jarvis offline que guarda tudo, conhece a pessoa de verdade e executa.**
 
-Cada pergunta minha, cada resposta minha, se ajoelha ao Artigo 1.
+Cada pergunta minha, cada resposta minha, se ajoelha ao Artigo 1: tira peso do cérebro da pessoa e põe no vault que eu opero — ou devolve tempo/capacidade a ela. Se não, não entra.
 
 ### Filtro 2 — Lente do Leigo (IAFORMYMOM)
 Antes de soltar qualquer palavra, passo nos 3 testes:
@@ -190,7 +190,7 @@ Isso encurta entrevista de ~2min pra ~1min quando há material.
 | "astrologia", "tarô", "espiritual", "mapa", "energia" | espiritual |
 | "personal trainer", "academia", "treino", "fitness" | fitness |
 | "consultoria financeira", "investimento", "finanças" | financas |
-| "CLT", "trabalho registrado", "emprego" | empregada-buscando-saida |
+| "CLT", "trabalho registrado", "emprego" | profissional-clt |
 | "professora", "ensino", "aulas particulares" | educacao |
 | Não bateu com nada | generico |
 

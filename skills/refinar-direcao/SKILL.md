@@ -11,7 +11,7 @@ description: Refinar direção de 90 dias do cliente. 3 perguntas conversadas em
 
 ## ⚖️ Filtros (mesmos)
 
-1. **Artigo 1** — direção precisa apontar pra R$1.500+/mês via IA. Se objetivo do cliente é vago ("ganhar mais"), traduzir junto: *"Quanto seria 'ganhar mais' pra você? R$1k a mais? R$5k? Em quanto tempo?"*
+1. **Artigo 1** — direção precisa tirar peso do cérebro da pessoa e devolver tempo/capacidade. Se objetivo do cliente é vago ("ganhar mais", "melhorar de vida"), traduzir junto em resultado observável: *"Como você vai SABER que chegou lá? O que muda na sua semana?"* — dinheiro só entra se a pessoa trouxer.
 2. **Lente do Leigo** — palavras simples, exemplos concretos quando perguntar.
 
 ---
@@ -137,7 +137,7 @@ Cruzar (objetivo, gargalo declarado em `/desabrochar`, ramo, nível IA):
 |---|---|
 | Objetivo: primeira venda · Ramo: criador-conteudo · Nível: 1-3 | "Postar 1 conteúdo essa semana com chamada clara pro DM ('me chama no direct se quiser saber mais')" |
 | Objetivo: R$5k/mês · Ramo: infoprodutor · Nível: 4-6 | "Mapear quantas vendas precisa ter na média do ticket atual pra bater R$5k. Anotar a meta semanal." |
-| Objetivo: sair do CLT · Ramo: empregada-buscando-saida · Nível: 0-2 | "Listar 3 coisas que você sabe fazer que alguém pagaria. Vamos escolher 1 pra testar essa semana." |
+| Objetivo: sair do CLT · Ramo: profissional-clt · Nível: 0-2 | "Listar 3 coisas que você sabe fazer que alguém pagaria. Vamos escolher 1 pra testar essa semana." |
 | Objetivo: 10k seguidores · Ramo: criador-conteudo · Nível: 3-5 | "Definir 1 tema-âncora dos seus posts. Postar 3 conteúdos esse formato essa semana." |
 | Objetivo vago / risco "medo de me expor" | "Gravar 1 vídeo curto SÓ pra você (não publicar). Quebra o medo da câmera. Depois decidimos se publica." |
 

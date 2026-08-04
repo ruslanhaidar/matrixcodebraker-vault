@@ -44,7 +44,7 @@ Saltar onda = afogar leigo. Ficar atrás da onda = subutilizar Claude.
 ### Listar opções organizadas
 - **Tradução:** "Te dou opções pra escolher quando você não sabe por onde começar"
 - **Exemplo aplicado a criador-conteudo:** "Posso listar 5 ideias do que postar essa semana baseadas no que você faz"
-- **Exemplo aplicado a empregada-buscando-saida:** "Posso listar 5 jeitos de transformar o que você sabe fazer em renda extra"
+- **Exemplo aplicado a profissional-clt:** "Posso listar 5 jeitos de transformar o que você sabe fazer em renda extra"
 - **Tempo:** 3-5min
 - **Nível IA mínimo:** 0
 
@@ -175,7 +175,7 @@ Capacidades têm aplicações específicas por ramo. Quando `/o-que-voce-faz` fi
 **Top 3 onda 2:** Buscar concorrência · Comparar precificação · Áudio→texto
 **Top 3 onda 3:** LP completa · Resumir vídeo curso · Análise métricas
 
-### Ramo: empregada-buscando-saida
+### Ramo: profissional-clt
 **Top 3 onda 1:** Listar opções (de renda) · Lembrar contexto · Anotar ideia
 **Top 3 onda 2:** Buscar mercado pra habilidade · Compilar plano · Comparar opções
 **Top 3 onda 3:** LP de serviço · Análise métricas (após primeiros testes)

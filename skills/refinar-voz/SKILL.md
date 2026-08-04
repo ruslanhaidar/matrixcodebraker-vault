@@ -11,7 +11,7 @@ description: Refinar a voz Claude pra imitar a do cliente. 4 perguntas conversad
 
 ## ⚖️ Filtros (mesmos do /desabrochar)
 
-1. **Artigo 1** — voz refinada serve a aproximar a pessoa de R$1.500+/mês
+1. **Artigo 1** — voz refinada serve ao Jarvis soar como a pessoa: menos re-explicação, menos retrabalho, mais tempo devolvido
 2. **Lente do Leigo** — palavras simples, próxima ação óbvia, resultado em 5min
 
 ---

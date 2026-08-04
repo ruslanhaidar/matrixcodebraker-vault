@@ -12,7 +12,7 @@ description: Plano estratégico concreto de 90 dias com etapas semanais e primei
 ## ⚖️ 2 Filtros + 1 Anti-Filtro
 
 ### Filtro 1 — Artigo 1
-Cada etapa do plano se ajoelha a "liberar a pessoa do trabalho fazendo R$1.500+/mês via IA". Etapa que não aproxima desse marco em 90 dias, não entra.
+Cada etapa do plano se ajoelha a "tirar peso do cérebro da pessoa e devolver tempo/capacidade a ela". Etapa que não gera capacidade nova visível em 90 dias, não entra. Marcos D+30/60/90 ancoram em capacidade entregue — dinheiro só se o cliente trouxer como objetivo.
 
 ### Filtro 2 — Lente do Leigo (IAFORMYMOM)
 Vocabulário simples, próximo passo óbvio em 1 frase, etapas pequenas o bastante pra serem feitas em 1 semana.

@@ -1,7 +1,7 @@
 {
   "name": "matrixcodebraker",
-  "version": "0.2.0",
-  "description": "Setup Claude Code pra calibrar IA ao seu jeito. Entrevista guiada (/matrixcodebraker:desabrochar) + skills universais + ramos por nicho. Liberar tempo, R$1.500+/mês via IA.",
+  "version": "0.3.0",
+  "description": "Seu Jarvis offline no Claude Code. Entrevista guiada (/matrixcodebraker:desabrochar) monta um segundo cérebro local e seu: memória que te conhece de verdade, skills universais + ramos por nicho. Setup perfeito pra levar sua IA a outro nível.",
   "author": {
     "name": "Ruslan Haidar",
     "url": "https://github.com/ruslanhaidar"

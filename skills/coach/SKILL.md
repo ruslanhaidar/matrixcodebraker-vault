@@ -15,7 +15,7 @@ description: Acompanhamento dos primeiros 7 dias do cliente. Detecta tropeços, 
 - Encoraja com fato, não com motivação genérica
 - Sai do caminho quando o cliente está em flow
 
-Filtro **Artigo 1**: a sugestão aproxima o cliente dos R$1.500+/mês via IA? Se não, não sugere.
+Filtro **Artigo 1**: a sugestão tira peso do cérebro do cliente e põe no vault que eu opero — ou devolve tempo/capacidade a ele? Se não, não sugere.
 
 ---
 
@@ -116,7 +116,7 @@ Se cliente topar, ficar com ele até a missão estar marcada `[x]`. Não desviar
 3. **Não repetir oferta recusada por 7 dias.** Se cliente disse "depois", anota em `personal/memory/feedback_capacidades.md` e silencia 7 dias.
 4. **Sempre apresentar como pergunta, nunca imposição:** *"Quer que eu faça X agora?"* — não *"Vou fazer X."*
 5. **Tempo estimado obrigatório.** *"Leva 5min"* — sem isso, cliente paralisa.
-6. **Filtro Artigo 1.** Se a capacidade não aproxima a pessoa de R$1.500+/mês, não ofertar — mesmo que a "dor" combine.
+6. **Filtro Artigo 1.** Se a capacidade não tira peso do cérebro da pessoa nem devolve tempo/capacidade, não ofertar — mesmo que a "dor" combine.
 
 ### Formato canônico da oferta
 

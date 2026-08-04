@@ -1,6 +1,6 @@
 # Matrix Code Braker
 
-> Plugin Claude Code que calibra a IA pro seu jeito. Setup guiado por entrevista (5 perguntas, 2 min). Liberar tempo + caminho rumo a R$1.500+/mês com IA.
+> Plugin Claude Code que monta seu Jarvis pessoal. Setup guiado por entrevista (5 perguntas, 2 min). Um segundo cérebro offline que te conhece e executa.
 
 [![Plugin Claude Code](https://img.shields.io/badge/plugin-claude--code-purple)](https://docs.claude.com/en/docs/claude-code/plugins)
 
@@ -8,9 +8,9 @@
 
 ## ⚖️ Artigo 1
 
-**Liberar a pessoa do trabalho fazendo ≥ R$1.500/mês com IA.**
+**O cérebro humano não foi feito pra guardar tanta informação. Este setup é a extensão dele: um Jarvis offline, na sua máquina, que guarda tudo, te conhece de verdade e executa — rápido, prático, sem expor sua vida a ninguém.**
 
-Toda skill, ramo, sugestão. Se não te aproxima desse objetivo, não entra.
+Toda skill, ramo, sugestão. Se não tira peso do seu cérebro nem te devolve tempo, não entra.
 
 ---
 
@@ -139,7 +139,7 @@ O plugin detecta seu ramo na entrevista (`/desabrochar`) e carrega regras espec�
 - `espiritual` (planejado)
 - `fitness` (planejado)
 - `financas` (planejado)
-- `empregada-buscando-saida` (planejado)
+- `profissional-clt` (planejado)
 - `educacao` (planejado)
 - `generico` — fallback se não bater com nada
 
